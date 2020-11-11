@@ -20,12 +20,36 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
+		
+			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
                 <classifier>mule-application</classifier>
+					<cloudHubDeployment>
+
+						<username>rvoleti</username>
+
+						<password>${password}</password>
+
+						<workers>1</workers>
+
+						<workerType>Micro</workerType>
+
+						<environment>Sandbox</environment>
+
+						<muleVersion>4.3.0</muleVersion>
+
+						<applicationName>r4-training4-american-ws</applicationName>
+						<!-- -->
+					</cloudHubDeployment>
+
                 <sharedLibraries>
                         <sharedLibrary>
                             <groupId>mysql</groupId>
@@ -82,6 +106,14 @@
             <url>https://repository.mulesoft.org/releases/</url>
             <layout>default</layout>
         </repository>
+        <!-- Rajesh added below while testing downloading from Sonatype nexus -->
+        <repository>
+            <id>rajesh-release</id>
+            <name>Rajesh Release Repository</name>
+            <url>http://localhost:8081/repository/rajesh-release/</url>
+			<layout>default</layout>
+        </repository>
+        
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -94,5 +126,19 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
+    <!-- Rajesh added below while testing SonaType Nexus Repos  -->
+    <distributionManagement>
+        <repository>
+            <id>rajesh-release</id>
+            <name>Rajesh Release Repository</name>
+            <url>http://localhost:8081/repository/rajesh-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>rajesh-snapshot</id>
+            <name>Rajesh Snapshot Repository</name>
+            <url>http://localhost:8081/repository/rajesh-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
