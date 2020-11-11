@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>r4-training4-american-ws</artifactId>
+	<artifactId>trainin-american-ws</artifactId>
     <version>1.0.0</version>
     <packaging>mule-application</packaging>
 	<name>r4-training4-american-ws</name>
